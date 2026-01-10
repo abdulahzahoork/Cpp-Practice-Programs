@@ -8,29 +8,28 @@
 using namespace std;
 
 struct Student {
-    int rollNo;
+    int rollNo, marks;
     string name;
-    float cgpa;
 };
 
 int main() {
-    Student s1;
+    Student s;
 
-    cout << "Enter roll no: ";
-    cin >> s1.rollNo;
-
+    cout << "Enter Roll no: ";
+    cin >> s.rollNo;
     cin.ignore();
+
     cout << "Enter name: ";
-    getline (cin, s1.name);
+    getline(cin, s.name);
 
-    cout << "Enter CGPA: ";
-    cin >> s1.cgpa;
+    cout << "Enter marks: ";
+    cin >> s.marks;
+    cout << endl;
 
-    cout << "==============================" << endl;
-
-    cout << "Roll no: " << s1.rollNo << endl;
-    cout << "Name: " << s1.name << endl;
-    cout << "CGPA: " << s1.cgpa << endl;
+    // Output Data: 
+    cout << "Roll no: " << s.rollNo << endl;
+    cout << "Name: " << s.name << endl;
+    cout << "Marks: " << s.marks << endl;
 
     return 0;
 }
