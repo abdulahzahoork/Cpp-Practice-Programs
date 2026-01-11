@@ -34,8 +34,8 @@ struct Student {
         getline(cin, name);
 
         for (int i=0; i<3; i++) {
-            cout << "Enter marks in Subject 1: ";
-            cin >> marks[i];
+            cout << "Enter marks in Subject " << i+1 << ": ";
+            cin >> marks[i];    
         }
     }
 
@@ -55,7 +55,7 @@ double calculateAverageMarks (int* marks, int size) {
         sum += marks[i];
     }
 
-    return sum/size;
+    return (double)sum/size;
 }
 
 bool checkPass (double average) {
@@ -63,13 +63,10 @@ bool checkPass (double average) {
 }
 
 int main() {
-    int n;
-    cout << "Enter number of students: ";
-    cin >> n;
 
-    Student s[n];
+    Student s[3];
 
-    for (int i=0; i<n; i++) {
+    for (int i=0; i<3; i++) {
         s[i].getDetails();
         cout << endl;
     }
@@ -77,7 +74,7 @@ int main() {
     cout << "---------- Student Details ----------" << endl;
     cout << endl;
     
-    for (int i=0; i<n; i++) {
+    for (int i=0; i<3; i++) {
         s[i].showData();
 
         double average = calculateAverageMarks(s[i].marks, 3);
