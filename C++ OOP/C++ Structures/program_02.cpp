@@ -1,46 +1,67 @@
-// Create a structure Employee with:
-// - id
-// - name
-// - salary
-// Input data for 2 employees and print their details.
+// Problem 2: Employee Salary
+
+// Create a structure Employee having:
+// - empID
+// - empName
+// - basicSalary
+
+// Tasks:
+// 1. Input data for n employees
+// 2. Calculate net salary using:
+//     - HRA = 10% of basic
+//     - Bonus = 5% of basic
+// 3. Display employee name and net salary
 
 #include <iostream>
 using namespace std;
 
 struct Employee {
-    int id;
-    string name;
-    double salary;
+    int empID;
+    string empName;
+    long long basicSalary;
+
+    void getDetails() {
+        cout << "Enter your employee ID: ";
+        cin >> empID;
+
+        cin.ignore();
+        cout << "Enter your name: ";
+        getline(cin, empName);
+
+        cout << "Enter your basic salary: ";
+        cin >> basicSalary;
+    }
+
+    long long netSalary() {
+        int hra = basicSalary * 0.10;
+        int bonus = basicSalary * 0.05;
+        long long net_salary = basicSalary + hra + bonus;
+        return net_salary;
+    }
+
+    void showDetails() {
+        cout << "Employee Name: " << empName << endl;
+        cout << "Net Salary: " << netSalary() << endl;
+    }
 };
 
 int main() {
-    Employee emp[2];
+    Employee emp[3];
 
-    // Input Data
-    for (int i=0; i<2; i++) {
-        cout << "Enter Details of Employee " << i+1 << endl;
-
-        cout << "Enter ID: ";
-        cin >> emp[i].id;
-
-        cin.ignore();
-        cout << "Enter name: ";
-        getline (cin, emp[i].name);
-
-        cout << "Enter salary: ";
-        cin >> emp[i].salary;
-
+    // Input Data from the user
+    for (int i=0; i<3; i++) {
+        cout << "Enter Details of Employee no. " << i+1 << ": " << endl;
+        emp[i].getDetails();
         cout << endl;
     }
 
-    // Output Data
-    cout << "---------- Employee Data ----------" << endl;
-    for (int i=0; i<2; i++) {
-        cout << "Employee " << i+1 << endl;
-        cout << "ID: " << emp[i].id << endl;
-        cout << "Name: " << emp[i].name << endl;
-        cout << "Salary: " << emp[i].salary << endl;
-        cout << endl;
+    // Output Names and Net Salaries
+    cout << "---------- Employees' Details ----------" << endl;
+    cout << endl;
+
+    for (int i=0; i<3; i++) {
+        emp[i].showDetails();
+        cout << endl;    
     }
 
     return 0;
