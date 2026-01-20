@@ -61,14 +61,16 @@ int main() {
         cin.ignore();
 
         employees.emplace_back(name, salary);
+        cout << endl;
     }
 
     cout << "---------- Employee Details ----------" << endl;
     cout << endl;
     for (int i = 0; i < n; i++) {
         cout << "Employee no. " << i+1 << endl;
-        cout <<" Name: " << employees[i].getName() << endl;
-        cout << " Salary: " << employees[i].getSalary() << endl;
+        cout <<"Name: " << employees[i].getName() << endl;
+        cout << "Salary: " << employees[i].getSalary() << endl;
+        cout << endl;
     }
 
     return 0;
