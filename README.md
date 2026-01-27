@@ -1,0 +1,1 @@
+This repository contains my C++ practice programs for **Programming Fundamentals** and **Object-Oriented Programming**. Loop-related programs are not included because the original files were lost and I decided not to recreate them because I am the king here :D
