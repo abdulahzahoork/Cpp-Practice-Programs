@@ -35,4 +35,6 @@ public:
 int main() {
     Student s;
     s.display();
+
+    return 0;
 }
