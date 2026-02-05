@@ -12,6 +12,7 @@
 // Observe what happens when no values are passed
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class BankAccount {

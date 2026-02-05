@@ -43,7 +43,7 @@ int main() {
     string name;
     int rollNo;
 
-    for (int i=0; i<students.size(); i++) {
+    for (int i=0; i<n; i++) {
         cout << "Enter name: ";
         getline(cin, name);
         cout << "Enter roll no: ";
@@ -56,7 +56,7 @@ int main() {
 
     cout << "---------- Students Records ----------" << endl;
     cout << endl;
-    for (int i=0; i<students.size(); i++) {
+    for (int i=0; i<n; i++) {
         cout << "Student no. " << i+1 << endl;
         students[i].display();
         cout << endl;

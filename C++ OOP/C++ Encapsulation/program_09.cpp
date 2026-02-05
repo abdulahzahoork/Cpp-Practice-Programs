@@ -29,4 +29,6 @@ public:
 int main() {
     Point p(3, 4);
     p.displayPoint();
+
+    return 0;
 }

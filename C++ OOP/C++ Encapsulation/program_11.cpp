@@ -34,7 +34,7 @@ public:
     Student (const Student &s) {
         name = s.name;
         rollNo = s.rollNo;
-        cout << "Copy constructor called" << endl;
+        cout << "Copy constructor copied" << endl;
     }
 
     void display() const {
