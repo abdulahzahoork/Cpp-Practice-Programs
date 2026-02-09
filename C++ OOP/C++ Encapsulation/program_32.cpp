@@ -23,7 +23,7 @@ public:
     }
 
     void setRoll(int roll) {
-        rollNo = roll;
+        rollNo = (roll < 0)? 0 : roll;
     }
 };
 
