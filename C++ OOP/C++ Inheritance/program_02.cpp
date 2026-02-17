@@ -14,36 +14,37 @@
 // Task:
 // Create a Manager object and display all details.
 
-#include <iostream> 
-using namespace std; 
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
-// -------------------- Base Class --------------------
+// ------------------- Base Class (Employee) -------------------
+
 class Employee {
 
 private: 
-    int id;
+    string empID;
     double salary;
 
 public: 
-    Employee (int id, double salary) {
-        this->id = id;
-        this->salary = salary;
-    }
+    Employee (string id, double sal): empID(id), salary((sal<0)? 0 : sal) {}
 
     void showEmployee() const {
-        cout << "ID: " << id << endl;
+        cout << "ID: " << empID << endl;
         cout << "Salary: " << salary << endl;
     }
 };
 
-// -------------------- Derived Class --------------------
+// ------------------- Derived Class (Manager) -------------------
+
 class Manager : public Employee {
 
 private: 
     string department;
 
 public: 
-    Manager (int id, double salary, string dept): Employee(id, salary), department(dept) {}
+    Manager (string id, double sal, string dept): Employee(id, sal), department(dept) {}
 
     void showManager() const {
         showEmployee();
@@ -51,10 +52,42 @@ public:
     }
 };
 
-// -------------------- Main Function --------------------
+// ------------------- Main Function -------------------
+
 int main() {
-    Manager m1(101, 45000, "Management");
-    m1.showManager();
+    int n;
+    cout << "Enter number of managers: ";
+    cin >> n;
+    cin.ignore();
+
+    string id, department;
+    double salary;
+
+    vector<Manager> managers;
+    managers.reserve(n);
+
+    for (int i=0; i<n; i++) {
+        cout << "\nEnter details of Manager no. " << i+1 << ": " << endl;
+        
+        cout << "Enter ID: ";
+        getline (cin, id);
+
+        cout << "Enter Salary: ";
+        cin >> salary;
+        cin.ignore();
+
+        cout << "Enter Department: ";
+        getline(cin, department);
+
+        managers.emplace_back(id, salary, department);
+    }
+
+    cout << "\n------------- Managers Details -------------" << endl;
+
+    for (const auto &m : managers) {
+        m.showManager();
+        cout << endl;
+    }
 
     return 0;
 }
